@@ -1,19 +1,19 @@
 #!/bin/bash
 
 LORA_LIST_PATH="./lists/lora.txt"
-LORA_PATH="./workspace/stable-diffusion-webui/models/Lora"
+LORA_PATH="../stable-diffusion-webui/models/Lora"
 
 TI_LIST_PATH="./lists/ti.txt"
-TI_PATH="./workspace/stable-diffusion-webui/embeddings"
+TI_PATH="../stable-diffusion-webui/embeddings"
 
 CHECKPOINT_LIST_PATH="./lists/checkpoint.txt"
-CHECKPOINT_PATH="./workspace/stable-diffusion-webui/models/Stable-diffusion"
+CHECKPOINT_PATH="../stable-diffusion-webui/models/Stable-diffusion"
 
 CONTROLNET_LIST_PATH="./lists/controlnet.txt"
-CONTROLNET_PATH="./workspace/stable-diffusion-webui/extensions/sd-webui-controlnet-main/models"
+CONTROLNET_PATH="../stable-diffusion-webui/extensions/sd-webui-controlnet-main/models"
 
 EXTENSION_LIST_PATH="./lists/extensions.txt"
-EXTENSION_PATH="./workspace/stable-diffusion-webui/extensions"
+EXTENSION_PATH="../stable-diffusion-webui/extensions"
 
 download_by_list_file() {
   TI_LINES=$(cat $1)
@@ -54,13 +54,13 @@ setup_controlnet() {
   if [ -f "$REF_FILE" ]; then
       echo "Controlnet has been setup.";
   else 
-      cp ./workspace/stable-diffusion-webui/extensions/sd-webui-controlnet-main/models/*.yaml ./workspace/stable-diffusion-webui/models;
+      cp ../stable-diffusion-webui/extensions/sd-webui-controlnet-main/models/*.yaml ../stable-diffusion-webui/models;
       touch "./controlnet_done.txt";
   fi
 }
 
 copy_webui_user() {
-  cp ./webui-user.sh ./workspace/stable-diffusion-webui
+  cp ./webui-user.sh ../stable-diffusion-webui
 }
 
 copy_webui_user
@@ -74,14 +74,14 @@ download_by_list_file $CHECKPOINT_LIST_PATH $CHECKPOINT_PATH
 
 echo "Container Started"
 export PYTHONUNBUFFERED=1
-source /workspace/stable-diffusion-webui/venv/bin/activate
+source ../stable-diffusion-webui/venv/bin/activate
 
 if [[ $RUNPOD_STOP_AUTO ]]
 then
     echo "Skipping auto-start of webui"
 else
     echo "Started webui through relauncher script"
-    cd /workspace/stable-diffusion-webui
+    cd ../stable-diffusion-webui
     python relauncher.py &
 fi
 
