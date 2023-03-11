@@ -1,4 +1,3 @@
 https://civitai.com/api/download/models/20014
 https://civitai.com/api/download/models/15165
-https://civitai.com/api/download/models/20014
 https://civitai.com/api/download/models/16576?type=Model&format=SafeTensor
