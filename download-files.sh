@@ -1,5 +1,7 @@
 #!/bin/bash
 
+apt-get update && apt-get install unzip
+
 LORA_LIST_PATH="./lists/lora.txt"
 LORA_PATH="../stable-diffusion-webui/models/Lora"
 
