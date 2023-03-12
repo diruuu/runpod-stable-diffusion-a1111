@@ -77,15 +77,6 @@ echo "Container Started"
 export PYTHONUNBUFFERED=1
 source ../stable-diffusion-webui/venv/bin/activate
 
-if [[ $RUNPOD_STOP_AUTO ]]
-then
-    echo "Skipping auto-start of webui"
-else
-    echo "Started webui through relauncher script"
-    cd ../stable-diffusion-webui
-    python relauncher.py &
-fi
-
 if [[ $PUBLIC_KEY ]]
 then
     mkdir -p ~/.ssh
