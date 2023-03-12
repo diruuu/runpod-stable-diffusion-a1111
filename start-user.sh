@@ -25,7 +25,10 @@ download_by_list_file() {
           echo "File $TI_LINE exists."
       else 
           wget -P $2 --content-disposition $TI_LINE;
-          touch $REF_FILE;
+          if [ $? -ne 0 ]
+            then echo "Download failed"
+            else touch $REF_FILE;
+          fi
       fi
   done
 }
