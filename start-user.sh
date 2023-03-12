@@ -16,6 +16,8 @@ then
     echo "SSH Service Started"
 fi
 
+cd /workspace/runpod-stable-diffusion-a1111
+
 copy_webui_user
 
 echo "Container Started"
