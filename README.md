@@ -6,5 +6,5 @@ Easy and simple way to load custom Stable Diffusion checkpoint models, extension
 4. Put the bash script below on the `Docker command` options on your custom runpod template. Don't forget to change the repo URL (`https://github.com/diruuu/runpod-stable-diffusion-a1111`) with your own cloned repo.
 
 ```bash
-bash -c 'apt-get update && apt-get install unzip && cd /workspace && ([ -d "./runpod-stable-diffusion-a1111" ] && echo "Directory runpod-stable-diffusion-a1111 exists." || git clone https://github.com/diruuu/runpod-stable-diffusion-a1111) && cd ./runpod-stable-diffusion-a1111 && ./start-user.sh'
+bash -c 'cd /workspace && ([ -d "./runpod-stable-diffusion-a1111" ] && echo "Directory runpod-stable-diffusion-a1111 exists." || git clone https://github.com/diruuu/runpod-stable-diffusion-a1111) && cd ./runpod-stable-diffusion-a1111 && ./download-files.sh && ./start-user.sh'
 ```
