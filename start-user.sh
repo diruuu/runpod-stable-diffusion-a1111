@@ -63,6 +63,18 @@ copy_webui_user() {
   cp ./webui-user.sh ../stable-diffusion-webui
 }
 
+if [[ $PUBLIC_KEY ]]
+then
+    mkdir -p ~/.ssh
+    chmod 700 ~/.ssh
+    cd ~/.ssh
+    echo $PUBLIC_KEY >> authorized_keys
+    chmod 700 -R ~/.ssh
+    cd /
+    service ssh start
+    echo "SSH Service Started"
+fi
+
 apt-get update && apt-get install unzip
 copy_webui_user
 download_extension $EXTENSION_LIST_PATH $EXTENSION_PATH
@@ -76,18 +88,6 @@ download_by_list_file $CHECKPOINT_LIST_PATH $CHECKPOINT_PATH
 echo "Container Started"
 export PYTHONUNBUFFERED=1
 source ../stable-diffusion-webui/venv/bin/activate
-
-if [[ $PUBLIC_KEY ]]
-then
-    mkdir -p ~/.ssh
-    chmod 700 ~/.ssh
-    cd ~/.ssh
-    echo $PUBLIC_KEY >> authorized_keys
-    chmod 700 -R ~/.ssh
-    cd /
-    service ssh start
-    echo "SSH Service Started"
-fi
 
 if [[ $JUPYTER_PASSWORD ]]
 then
