@@ -63,6 +63,7 @@ copy_webui_user() {
   cp ./webui-user.sh ../stable-diffusion-webui
 }
 
+apt-get update && apt-get install unzip
 copy_webui_user
 download_extension $EXTENSION_LIST_PATH $EXTENSION_PATH
 setup_controlnet

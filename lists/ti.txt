@@ -1,1 +1,3 @@
 https://civitai.com/api/download/models/9522
+https://civitai.com/api/download/models/14274
+https://civitai.com/api/download/models/12186
