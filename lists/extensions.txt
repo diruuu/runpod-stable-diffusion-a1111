@@ -2,3 +2,4 @@ Mikubill|sd-webui-controlnet|main
 fkunn1326|openpose-editor|master
 opparco|stable-diffusion-webui-composable-lora|main
 opparco|stable-diffusion-webui-two-shot|main
+jexom|sd-webui-depth-lib|main
